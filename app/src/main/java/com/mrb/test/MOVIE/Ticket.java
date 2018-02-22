@@ -1,4 +1,4 @@
-package com.mrb.test.Class.MOVIE;
+package com.mrb.test.MOVIE;
 import java.sql.*;
 
 /**
@@ -16,16 +16,53 @@ public class Ticket {
 	String hallname;
 	String seat;
 	String SeatID;
+	public String getDay() {
+		return day;
+	}
+
+	public int getTicket_ID() {
+		return ticket_ID;
+	}
+
+
+	public int getSeatnumber() {
+		return seatnumber;
+	}
+
+	public String getRow() {
+		return row;
+	}
+
+	public String getHallname() {
+		return hallname;
+	}
+
+	public String getSeat() {
+		return seat;
+	}
+
+
+	public String getMovieName(){
+		return moviename;
+	}
+	
+	public String getStartTime(){
+		return starttime;
+	}
+	
+	public String getSeatID(){
+		return SeatID;
+	}
 	
 	
 	
-	Ticket(int ID){
+	public Ticket(int ID){
 		ticket_ID = ID;
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:TicketAuto.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/TicketAuto.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully");
 
@@ -61,17 +98,7 @@ public class Ticket {
 		}
 	}
 	
-	public String getMovieName(){
-		return moviename;
-	}
 	
-	public String getStartTime(){
-		return starttime;
-	}
-	
-	public String getSeatID(){
-		return SeatID;
-	}
 	
 	/**
 	 * 輸入Ticket 的 ID，刪除Ticket
@@ -86,8 +113,8 @@ public class Ticket {
 			Statement stmt = null;
 			// Connection c1 = null;
 			Statement stmt1 = null;
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:TicketAuto.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/TicketAuto.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully");
 			stmt1 = c.createStatement();
@@ -108,6 +135,7 @@ public class Ticket {
 
 			System.out.println("ID=" + ID + " is being DELETED");
 
+
 		} catch (MovieException e) {
 			System.out.println(e.getMessage());
 		} catch (Exception e) {
@@ -124,8 +152,8 @@ public class Ticket {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:TicketAuto.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/TicketAuto.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully");
 
@@ -176,8 +204,8 @@ public class Ticket {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:TicketAuto.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/TicketAuto.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully");
 
@@ -231,8 +259,8 @@ public class Ticket {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:TicketAuto.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/TicketAuto.db");
 			// System.out.println("Opened database successfully");
 
 			stmt = c.createStatement();
@@ -263,8 +291,8 @@ public class Ticket {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:TicketAuto.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/TicketAuto.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully");
 

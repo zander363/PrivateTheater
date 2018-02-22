@@ -1,9 +1,11 @@
-package com.mrb.test.Class.MOVIE;
+package com.mrb.test.MOVIE;
+
+import com.mrb.test.HALL.Hall;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.mrb.test.Class.HALL.*;
+import com.mrb.test.HALL.*;
 
 public class MovieControl {
 	private static String CurrentMovieName;
@@ -38,12 +40,12 @@ public class MovieControl {
 		}
 	}
 
-	public static void setRowbook() {
-		Rowbook = true;
+	public static void setRowbook(boolean bool) {
+		Rowbook = bool;
 	}
 
-	public static void setRegionbook() {
-		Regionbook = true;
+	public static void setRegionbook(boolean bool) {
+		Regionbook = bool;
 	}
 
 	public static String getCurrentMovieName() {
@@ -80,7 +82,7 @@ public class MovieControl {
 	 * 
 	 * @throws IOException
 	 */
-	public static void InitMovieData() throws IOException {
+	public static void InitMovieData(){
 		Movie.Creat_Mov_Db();
 		Hall.InitialHall();
 		Ticket.InitializeDB();
@@ -97,26 +99,27 @@ public class MovieControl {
 
 	/**
 	 * 選好電影名稱後搜尋該名稱的所有場次
+	 *
 	 * @return ArrayList<String>
 	 */
 	public static ArrayList<String> getSession() {
 		return Movie.ShowAllTime(CurrentMovieName);
 	}
 
-	public static Movie getMovie() throws IOException {
+	public static Movie getMovie(){
 		if(new Movie(CurrentMovieName, CurrentSession).isIsbig() == true)
 			isBigHall = true;
 		return new Movie(CurrentMovieName, CurrentSession);
 	}
 
-	public static boolean IsEnough() throws IOException {
+	public static boolean IsEnough(){
 		if (Amount < getMovie().getHall().SearchEmptySeat())
 			return true;
 		else
 			return false;
 	}
 
-	public static ArrayList<String> ShowRegionState() throws IOException {
+	public static ArrayList<String> ShowRegionState(){
 		ArrayList<String> regionstate = new ArrayList(10);
 		if (getMovie().getHall().getIsBigHall() == true) {
 			regionstate.add("red : " + getMovie().getHall().RegionEmptySeat("red") + "seats");
@@ -130,7 +133,7 @@ public class MovieControl {
 		}
 	}
 
-	public static ArrayList<String> ShowRowState() throws IOException {
+	public static ArrayList<String> ShowRowState(){
 		ArrayList<String> rowstate = new ArrayList(10);
 		rowstate.add("A : " + getMovie().getHall().RowEmptySeat("A") + "seats");
 		rowstate.add("B : " + getMovie().getHall().RowEmptySeat("B") + "seats");
@@ -197,7 +200,7 @@ public class MovieControl {
 	 * Integer.valueOf(substring);
 	 * getMovie().getHall().SeatNumberBook(SeatIDList.get(0), num); } }
 	 */
-	public static ArrayList<Integer> book() throws IOException {
+	public static ArrayList<Integer> book(){
 		if (Rowbook == true && Regionbook == false)
 			return getMovie().getHall().RowBook(Amount, currentRow);
 		else if (Rowbook == false && Regionbook == true)
@@ -211,7 +214,7 @@ public class MovieControl {
 		return new Ticket(id);
 	}
 
-	public static void Cancel() throws IOException {
+	public static void Cancel(){
 		for (int i = 0; i < CancelTicket.size(); i++) {
 			Ticket ticket = new Ticket(CancelTicket.get(i));
 			Movie movie = new Movie(ticket.getMovieName(), new Time(ticket.getStartTime()));

@@ -1,5 +1,4 @@
-package com.mrb.test.Class.HALL;
-
+package com.mrb.test.HALL;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -91,8 +90,8 @@ public abstract class  Hall {
 		Statement stmt = null;
 
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Hall.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Hall.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully");
 
@@ -136,8 +135,7 @@ public abstract class  Hall {
 	 * @return boolean
 	 * @throws IOException
 	 */
-	public static boolean InitialHall() throws IOException
-	{
+	public static boolean InitialHall() {
 		return InitialBigHall()&&InitialSmallHall();
 	}
 	
@@ -146,8 +144,7 @@ public abstract class  Hall {
 	 * @return boolean 資料是否讀取成功
 	 * @throws IOException
 	 */
-	private static boolean InitialBigHall( ) throws IOException
-	  {
+	private static boolean InitialBigHall( )  {
 		  	String str="";
 		  	if(Hall.NewBigHallTable("BIG_HALL")==false)
 		  		return false;
@@ -207,8 +204,8 @@ public abstract class  Hall {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Hall.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Hall.db");
 			c.setAutoCommit(false);
 
 			stmt = c.createStatement();
@@ -233,14 +230,13 @@ public abstract class  Hall {
 	 * @param HallID
 	 * @return boolean 是否創立成功
 	 */
-	private static boolean NewBigHallTable(String HallID)
-	{
+	private static boolean NewBigHallTable(String HallID){
 		Connection c = null;
 		Statement stmt = null;
 		Statement stmt2 = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Hall.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Hall.db");
 			//System.out.println("Opened database successfully");
 
 			stmt2=c.createStatement();
@@ -278,8 +274,7 @@ public abstract class  Hall {
 	 * @return boolean 是否讀入成功
 	 * @throws IOException
 	 */
-	private static boolean InitialSmallHall( ) throws IOException
-	  {
+	private static boolean InitialSmallHall( )  {
 		  	String str="";
 		  	if(Hall.NewSmallHallTable("SMALL_HALL")==false)
 		  	{
@@ -338,8 +333,8 @@ public abstract class  Hall {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Hall.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Hall.db");
 			c.setAutoCommit(false);
 
 			stmt = c.createStatement();
@@ -367,8 +362,8 @@ public abstract class  Hall {
 		Statement stmt = null;
 		Statement stmt2 = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Hall.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Hall.db");
 			//System.out.println("Opened database successfully");
 
 			stmt2=c.createStatement();

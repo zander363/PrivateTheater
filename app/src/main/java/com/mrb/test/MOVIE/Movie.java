@@ -1,4 +1,5 @@
-package com.mrb.test.Class.MOVIE;
+package com.mrb.test.MOVIE;
+
 import java.sql.*;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
@@ -7,8 +8,9 @@ import java.util.Date;
 import java.io.*;
 import org.json.*;
 
-import com.mrb.test.Class.HALL.*;
-
+import com.mrb.test.HALL.BigHall;
+import com.mrb.test.HALL.Hall;
+import com.mrb.test.HALL.SmallHall;
 /**
  * Class Movie
  * 儲存movie的資料
@@ -61,8 +63,8 @@ public class Movie {
 		Connection c = null;
 		Statement stmt2 = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Movie.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Movie.db");
 			c.setAutoCommit(false);
 			stmt2 = c.createStatement();
 			ResultSet rs1 = stmt2.executeQuery("SELECT *  FROM " + Tab_name);
@@ -96,13 +98,13 @@ public class Movie {
 	 * @param st_t
 	 * @throws IOException
 	 */
-	Movie(String mov_name, java.sql.Time st_t) throws IOException {
+	Movie(String mov_name, java.sql.Time st_t)  {
 		//System.out.println("In Movie Constructor");
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Movie.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Movie.db");
 			c.setAutoCommit(false);
 			//System.out.println("Open Successfully");
 			stmt = c.createStatement();
@@ -200,8 +202,8 @@ public class Movie {
 		Statement stmt2 = null;
 		ArrayList<String> arrlist = new ArrayList(10);
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Movie.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Movie.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully HIGHER!!!! ");
 
@@ -240,8 +242,8 @@ public class Movie {
 		Statement stmt2 = null;
 		ArrayList<String> arrlist = new ArrayList<String>(10);
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Movie.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Movie.db");
 			c.setAutoCommit(false);
 			// ("MOVIENAME,ID, URL, DESCRI, HALLNAME, HALL_ID, MOV_CLAS,
 			// STARTTIME, SCORE, INFOR)
@@ -275,8 +277,8 @@ public class Movie {
 		Statement stmt2 = null;
 		String clas = "";
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Movie.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Movie.db");
 			c.setAutoCommit(false);
 			// ("MOVIENAME,ID, URL, DESCRI, HALLNAME, HALL_ID, MOV_CLAS,
 			// STARTTIME, SCORE, INFOR)
@@ -304,8 +306,8 @@ public class Movie {
 		Statement stmt2 = null;
 		ArrayList<String> arrlist = new ArrayList<String>(10);
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Movie.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Movie.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully HIGHER!!!! ");
 
@@ -358,8 +360,8 @@ public class Movie {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Movie.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Movie.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully HIGHER!!!! ");
 
@@ -395,8 +397,8 @@ public class Movie {
 		Connection c = null;
 		Statement stmt2 = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Movie.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Movie.db");
 			c.setAutoCommit(false);
 			stmt2 = c.createStatement();
 			ResultSet rs1 = stmt2.executeQuery("SELECT *  FROM " + Tab_name + " WHERE STARTTIME >= '"
@@ -444,8 +446,8 @@ public class Movie {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Movie.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Movie.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully");
 
@@ -493,8 +495,10 @@ public class Movie {
 		String str = "";
 
 		FileReader fin;
+
 		try {
-			fin = new FileReader("movie_info.json");
+			File file = new File("file:///android_asset/movie_info.json");
+			fin = new FileReader(file);
 			int word;
 
 			while (fin.ready()) {
@@ -610,8 +614,8 @@ public class Movie {
 		Connection c = null;
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Movie.db");
+			Class.forName("org.sqldroid.SQLDroidDriver");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Movie.db");
 			// System.out.println("Opened database successfully");
 
 			stmt = c.createStatement();

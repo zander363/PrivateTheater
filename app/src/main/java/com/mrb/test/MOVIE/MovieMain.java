@@ -1,11 +1,11 @@
-package com.mrb.test.Class.MOVIE;
+package com.mrb.test.MOVIE;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.mrb.test.Class.HALL.*;
+import com.mrb.test.HALL.*;
 //import javafx.scene.layout.Region;
-//import HALL.*
+import com.mrb.test.HALL.*
 ;/**
  * Class MovieMain
  * 使用此專案的函數
@@ -19,11 +19,11 @@ public class MovieMain {
 	 * @param args
 	 * @throws IOException
 	 */
-	public static void main(String[] args) throws IOException {
+/*	public static void main(String[] args) {
 		Movie.Creat_Mov_Db();
 		Hall.InitialHall();
 		Ticket.InitializeDB();
-		User.Setuser();
+		//User.Setuser();
 		boolean RepeatUser = true;
 		boolean RepeatBooking = true;
 		boolean RepeatSearch = true;
@@ -67,16 +67,7 @@ public class MovieMain {
 
 				}
 			} else if(Mode == 1) {   // 訂票
-				/*
-				 * System.out.
-				 * println("Please enter Consumer's LastName and Age (with space between) "
-				 * ); Scanner scanner = new Scanner(System.in);
-				 * System.out.printf("Age = "); int age=scanner.nextInt();
-				 * System.out.printf("Name = "); String name=scanner.next();
-				 * 
-				 * if(age>0&&age<150) Consumer=new User(age,name); else
-				 * continue;
-				 */
+
 				while (RepeatBooking) {
 					System.out.println("-----------------------------");
 					System.out.println("user_index:");
@@ -204,7 +195,7 @@ public class MovieMain {
 
 		}
 	}
-
+*/
 	/**
 	 * 查詢評價
 	 */
@@ -227,7 +218,7 @@ public class MovieMain {
 		String Time_1 = scanner.next();
 		System.out.println("to:");
 		String Time_2 = scanner.next();
-		javaTime time_1 = new Time(Time_1);
+		Time time_1 = new Time(Time_1);
 		Time time_2 = new Time(Time_2);
 		System.out.println("最大片長 (分鐘)");
 		int length = scanner.nextInt();

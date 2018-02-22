@@ -37,7 +37,7 @@ public class LoggingActivity extends AppCompatActivity {
                     doubleBackToExitPressedOnce = false;
                     Intent intent = new Intent();
                     //go back to previous page
-                    intent.setClass(LoggingActivity.this, Register.class);
+                    intent.setClass(LoggingActivity.this, LoggingActivity.this.getClass());
                     startActivity(intent);
                 }
             });
@@ -46,7 +46,7 @@ public class LoggingActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     doubleBackToExitPressedOnce = false;
                     //if log not success, toast.
-                    if(){
+                    if(1==1){
                         Toast.makeText(LoggingActivity.this,"The input information have error", Toast.LENGTH_LONG).show();
                     }else {
                         Intent intent = new Intent();
@@ -58,7 +58,7 @@ public class LoggingActivity extends AppCompatActivity {
                                 .putString("NAME", String.valueOf(name))
                                 .putString("PW", String.valueOf(pw))
                                 .apply();
-                        intent.setClass(LoggingActivity.this, Previous.class);
+                        intent.setClass(LoggingActivity.this, LoggingActivity.this.getClass());
                         startActivity(intent);
                     }
                 }

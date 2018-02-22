@@ -1,5 +1,4 @@
-package com.mrb.test.Class.HALL;
-
+package com.mrb.test.HALL;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.mrb.test.Class.MOVIE.MovieException;
-import com.mrb.test.Class.MOVIE.Ticket;
+import com.mrb.test.MOVIE.MovieException;
+import com.mrb.test.MOVIE.Ticket;
 /**
  * Class SmallHall
  * 電影院小廳

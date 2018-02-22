@@ -1,4 +1,4 @@
-package com.mrb.test.Class.MOVIE;
+package com.mrb.test.MOVIE;
 /**
  * enum Classification
  * 分級類型

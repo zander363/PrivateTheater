@@ -1,5 +1,4 @@
-package com.mrb.test.Class.HALL;
-
+package com.mrb.test.HALL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -7,10 +6,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.io.*;
 
-
-import com.mrb.test.Class.MOVIE.Movie;
-import com.mrb.test.Class.MOVIE.MovieException;
-import com.mrb.test.Class.MOVIE.Ticket;
+import com.mrb.test.MOVIE.MovieException;
+import com.mrb.test.MOVIE.Ticket;
 
 /**
  * Class BigHall

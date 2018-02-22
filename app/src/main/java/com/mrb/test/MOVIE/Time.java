@@ -1,4 +1,4 @@
-package com.mrb.test.Class.MOVIE;
+package com.mrb.test.MOVIE;
 
 /**
  * Time
@@ -89,10 +89,12 @@ public class Time {
 		else
 			return false;
 	}
+	
 	/**
 	 * 用來測試的main function
 	 * @param args
 	 */
+	/*
 	public static void main(String[] args){
 		Time time = new Time();
 		System.out.println(time.TimetoString());
@@ -102,5 +104,5 @@ public class Time {
 		boolean a = time2.isEarly(time);
 		System.out.println(a);
 		System.out.print(time2.getHour());
-	}
+	}*/
 }
