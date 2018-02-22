@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
-import
+import com.mrb.test.Class.MOVIE.MovieControl;
 
 public class MainActivity extends AppCompatActivity {
     private ImageButton booking;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     doubleBackToExitPressedOnce = false;
                     Intent intent = new Intent();
-                    intent.setClass(MainActivity.this, refund1.class);
+                    intent.setClass(MainActivity.this, BookingActivity.class);
                     startActivity(intent);
                 }
             });
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     doubleBackToExitPressedOnce = false;
                     Intent intent = new Intent();
-                    intent.setClass(MainActivity.this, refund1.class);
+                    intent.setClass(MainActivity.this, RefundingActivity.class);
                     startActivity(intent);
                 }
             });
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     doubleBackToExitPressedOnce = false;
                     Intent intent = new Intent();
-                    intent.setClass(MainActivity.this, refund1.class);
+                    intent.setClass(MainActivity.this, SearchingActivity.class);
                     startActivity(intent);
                 }
             });

@@ -227,7 +227,7 @@ public class MovieMain {
 		String Time_1 = scanner.next();
 		System.out.println("to:");
 		String Time_2 = scanner.next();
-		Time time_1 = new Time(Time_1);
+		javaTime time_1 = new Time(Time_1);
 		Time time_2 = new Time(Time_2);
 		System.out.println("最大片長 (分鐘)");
 		int length = scanner.nextInt();

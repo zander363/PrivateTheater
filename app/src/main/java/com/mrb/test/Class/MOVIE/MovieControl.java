@@ -97,9 +97,6 @@ public class MovieControl {
 
 	/**
 	 * 選好電影名稱後搜尋該名稱的所有場次
-	 * 
-	 * @param String
-	 *            MovieName
 	 * @return ArrayList<String>
 	 */
 	public static ArrayList<String> getSession() {
