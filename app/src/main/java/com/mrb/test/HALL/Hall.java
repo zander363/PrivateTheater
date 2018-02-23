@@ -91,7 +91,7 @@ public abstract class  Hall {
 
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Hall.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Hall.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully");
 
@@ -205,7 +205,7 @@ public abstract class  Hall {
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Hall.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Hall.db");
 			c.setAutoCommit(false);
 
 			stmt = c.createStatement();
@@ -236,7 +236,7 @@ public abstract class  Hall {
 		Statement stmt2 = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Hall.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Hall.db");
 			//System.out.println("Opened database successfully");
 
 			stmt2=c.createStatement();
@@ -334,7 +334,7 @@ public abstract class  Hall {
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Hall.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Hall.db");
 			c.setAutoCommit(false);
 
 			stmt = c.createStatement();
@@ -363,7 +363,7 @@ public abstract class  Hall {
 		Statement stmt2 = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/Hall.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Hall.db");
 			//System.out.println("Opened database successfully");
 
 			stmt2=c.createStatement();

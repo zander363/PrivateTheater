@@ -84,8 +84,8 @@ public class MovieControl {
 	 */
 	public static void InitMovieData(){
 		Movie.Creat_Mov_Db();
-		Hall.InitialHall();
-		Ticket.InitializeDB();
+		//Hall.InitialHall();
+		//Ticket.InitializeDB();
 	}
 
 	/**
