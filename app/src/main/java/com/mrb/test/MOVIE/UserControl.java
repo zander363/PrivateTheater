@@ -61,7 +61,7 @@ public class UserControl {
 		int return_value=0;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/User.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/User.db");
 			c.setAutoCommit(false);
 			//System.out.println("Opened database successfully");
 			stmt = c.createStatement();
@@ -108,7 +108,7 @@ public class UserControl {
 		int age=0;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.example.liuxizhen.oopproject/User.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/User.db");
 			c.setAutoCommit(false);
 			//System.out.println("Opened database successfully");
 			stmt = c.createStatement();
