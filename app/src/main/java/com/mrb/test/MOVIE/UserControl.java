@@ -7,8 +7,6 @@ import java.util.ArrayList;
 
 
 public class UserControl {
-	
-	
 	/*
 	 * constructor
 	 */
@@ -43,7 +41,7 @@ public class UserControl {
 	}
 	
 	/**
-	 * 霈��焉son��ser鞈��
+	 * 霈??焉son???ser鞈???
 	 */
 	private void Set_User_Db(){
 		String account = "hi4u3ykk04";

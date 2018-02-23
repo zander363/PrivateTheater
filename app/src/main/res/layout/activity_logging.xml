@@ -7,12 +7,24 @@
     tools:context="com.mrb.test.ooad.LoggingActivity">
 
     <LinearLayout
-        android:layout_width="358dp"
+        android:layout_width="331dp"
         android:layout_height="363dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="13dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name" />
 
         <EditText
             android:id="@+id/Name"
@@ -21,6 +33,12 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name" />
+
+        <TextView
+            android:id="@+id/pwText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="password" />
 
         <EditText
             android:id="@+id/pw"
@@ -33,6 +51,11 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:orientation="horizontal">
+
+            <Space
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <Button
                 android:id="@+id/register"

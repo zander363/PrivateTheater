@@ -6,51 +6,80 @@
     android:layout_height="match_parent"
     tools:context="com.mrb.test.ooad.SearchingActivity">
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/ic_launcher_round"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="88dp" />
+    <GridLayout
+        android:layout_width="302dp"
+        android:layout_height="321dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/ic_launcher"
-        tools:layout_editor_absoluteX="228dp"
-        tools:layout_editor_absoluteY="88dp" />
+        <ImageButton
+            android:id="@+id/ratingButton"
+            style="@android:style/Widget.ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/searching_rate" />
 
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/ic_launcher"
-        tools:layout_editor_absoluteX="152dp"
-        tools:layout_editor_absoluteY="264dp" />
+        <Space
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="0" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rate"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="180dp" />
+        <ImageButton
+            android:id="@+id/timeButton"
+            style="@android:style/Widget.ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_row="0"
+            app:srcCompat="@mipmap/searching_time" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Time"
-        tools:layout_editor_absoluteX="240dp"
-        tools:layout_editor_absoluteY="180dp" />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_column="0"
+            android:layout_row="2" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Remain"
-        tools:layout_editor_absoluteX="169dp"
-        tools:layout_editor_absoluteY="356dp" />
+        <TextView
+            android:id="@+id/rateText"
+            android:layout_width="117dp"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:text="依評分搜尋"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/timeText"
+            android:layout_width="116dp"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_row="1"
+            android:text="依時間搜尋"
+            android:textAlignment="center" />
+
+        <ImageButton
+            android:id="@+id/seatButton"
+            style="@android:style/Widget.ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="3"
+            app:srcCompat="@mipmap/searching_seat" />
+
+        <TextView
+            android:id="@+id/seatText"
+            android:layout_width="118dp"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="4"
+            android:text="依剩餘座位搜尋"
+            android:textAlignment="center" />
+    </GridLayout>
 </android.support.constraint.ConstraintLayout>

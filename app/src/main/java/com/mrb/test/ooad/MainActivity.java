@@ -78,12 +78,12 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     doubleBackToExitPressedOnce = false;
-                    /*
+
                     Intent intent = new Intent();
-                    intent.setClass(MainActivity.this, SearchingActivity.class);
+                    intent.setClass(MainActivity.this, LoggingActivity.class);
                     startActivity(intent);
-                    */
-                    Toast.makeText(MainActivity.this, "功能尚未開放", Toast.LENGTH_LONG).show();
+
+                    //Toast.makeText(MainActivity.this, "功能尚未開放", Toast.LENGTH_LONG).show();
                 }
             });
 

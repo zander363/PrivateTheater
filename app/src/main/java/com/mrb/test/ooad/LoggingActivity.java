@@ -68,23 +68,4 @@ public class LoggingActivity extends AppCompatActivity {
             Toast.makeText(LoggingActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
-    @Override
-    public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
-            return;
-        }
-
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "再按一下退出程式", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce=false;
-            }
-        }, 2000);
-    }
-
 }

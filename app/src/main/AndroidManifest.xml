@@ -24,7 +24,9 @@
         <activity android:name=".LoggingActivity" />
         <activity android:name=".BookingActivity" />
         <activity android:name=".RefundingActivity" />
-        <activity android:name=".SearchingActivity"></activity>
+        <activity android:name=".SearchingActivity" />
+        <activity android:name=".SearchingTimeActivity" />
+        <activity android:name=".SearchingRatingActivity"></activity>
     </application>
 
 </manifest>

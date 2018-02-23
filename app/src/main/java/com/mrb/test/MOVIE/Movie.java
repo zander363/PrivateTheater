@@ -1,7 +1,6 @@
 package com.mrb.test.MOVIE;
 
 import java.sql.*;
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,7 +31,7 @@ public class Movie {
 	private String hall_id; // 廳位的Table name
 	private String mov_clas_s; // 電影分級
 	private Classification mov_clas; // 電影分級(enum Classification)
-	private java.sql.Time starttime; // 電影開場時間(型態為Time)
+	private Time starttime; // 電影開場時間(型態為Time)
 	private String starttime_s; //電影開場時間(型態為String)
 	private String score_s; // 電影評價
 	private double score;  // 電影分數
@@ -59,7 +58,7 @@ public class Movie {
 		int i = 0;
 		String name;
 		String st;
-		java.sql.Time st_time;
+		Time st_time;
 		Connection c = null;
 		Statement stmt2 = null;
 		try {
@@ -78,7 +77,7 @@ public class Movie {
 				// System.out.println(name);
 				st = rs1.getString("starttime");
 				// System.out.println(st);
-				st_time = new java.sql.Time(st);
+				st_time = new Time(st);
 				Movie a = new Movie(name, st_time);
 				initial_allmovie.add(a);
 
@@ -98,7 +97,7 @@ public class Movie {
 	 * @param st_t
 	 * @throws IOException
 	 */
-	Movie(String mov_name, java.sql.Time st_t)  {
+	Movie(String mov_name, Time st_t)  {
 		//System.out.println("In Movie Constructor");
 		Connection c = null;
 		Statement stmt = null;
@@ -159,7 +158,7 @@ public class Movie {
 					mov_clas = Classification.R_18;
 				}
 				
-				starttime = new java.sql.Time(starttime_s);
+				starttime = new Time(starttime_s);
 				/*
 				 * int x = starttime_s.indexOf("："); if (x < 0) { String[] b =
 				 * starttime_s.split(":"); String hour = b[0]; hour =
@@ -207,7 +206,7 @@ public class Movie {
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully HIGHER!!!! ");
 
-			java.sql.Time now = new java.sql.Time(Movie.getDateTime());
+			Time now = new Time(Movie.getDateTime());
 			// now.StringtoTime(Movie.getDateTime());
 			stmt2 = c.createStatement();
 
@@ -215,7 +214,7 @@ public class Movie {
 					.executeQuery("SELECT STARTTIME  FROM " + Tab_name + " WHERE MOVIENAME='" + mov_name + "';");
 			while (rs1.next()) {
 				String t = rs1.getString("starttime");
-				java.sql.Time obt = new java.sql.Time(t);
+				Time obt = new Time(t);
 
 				// obt.StringtoTime(t);
 				if (now.isEarly(obt)) {
@@ -393,7 +392,7 @@ public class Movie {
 	 * @param t2 時間區間的結束時間
 	 * @param len 片長
 	 */
-	public static void Time_Len_Search(java.sql.Time t1, java.sql.Time t2, int len) {
+	public static void Time_Len_Search(Time t1, Time t2, int len) {
 		Connection c = null;
 		Statement stmt2 = null;
 		try {
@@ -485,8 +484,8 @@ public class Movie {
 		String hallname_s;
 		String hall_id;
 		String mov_clas_s;
-		Classification mov_clas;
-		java.sql.Time starttime;
+		Classification mov_class;
+		Time starttime;
 		String starttime_s;
 		String score_s;
 		double score;
@@ -570,7 +569,7 @@ public class Movie {
 					String[] b = score_s.split("/");
 					score = Double.parseDouble(b[0]);
 					// System.out.println(score);
-					starttime = new java.sql.Time(a[iter]);
+					starttime = new Time(a[iter]);
 					// System.out.println(0);
 					hall_id = "a" + id + starttime.getHour() + starttime.getMinute() + "_" + date;
 					// System.out.println(1);
