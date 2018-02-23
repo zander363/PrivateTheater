@@ -223,7 +223,6 @@ public class MovieMain {
 		System.out.println("最大片長 (分鐘)");
 		int length = scanner.nextInt();
 		Movie.Time_Len_Search(time_1, time_2, length);
-
 	}
 
 	/**

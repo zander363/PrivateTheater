@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">藏私售票系統</string>
+    <string name="app_name">私藏電影館</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->

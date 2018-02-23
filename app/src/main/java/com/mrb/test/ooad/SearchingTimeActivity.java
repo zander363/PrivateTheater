@@ -34,16 +34,17 @@ public class SearchingTimeActivity extends AppCompatActivity {
 
         GregorianCalendar calendar = new GregorianCalendar();
 
-        /*
+
         confirmation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
                 Intent intent = new Intent();
                 intent.setClass(SearchingTimeActivity.this, next.class);
                 intent.putExtra("starttime",start_ourtime.toString());
                 intent.putExtra("endtime",end_ourtime.toString());
                 startActivity(intent);
-
+        */
             }
         });
 
@@ -54,7 +55,7 @@ public class SearchingTimeActivity extends AppCompatActivity {
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             start_time.setText((hourOfDay > 12 ? hourOfDay - 12 : hourOfDay)
                     + ":" + minute + " " + (hourOfDay > 12 ? "PM" : "AM"));
-            start_ourtime = new ourtime(hourOfDay, minute);
+            start_ourtime = new Time(Integer.toString(hourOfDay), Integer.toString(minute));
 
         }
     }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(calendar.MINUTE),
@@ -66,7 +67,7 @@ public class SearchingTimeActivity extends AppCompatActivity {
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             end_time.setText((hourOfDay > 12 ? hourOfDay - 12 : hourOfDay)
                     + ":" + minute + " " + (hourOfDay > 12 ? "PM" : "AM"));
-            end_ourtime = new ourtime(hourOfDay, minute);
+            end_ourtime = new Time(Integer.toString(hourOfDay), Integer.toString(minute));
         }
     }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(calendar.MINUTE),
             false);
@@ -83,14 +84,12 @@ public class SearchingTimeActivity extends AppCompatActivity {
     public void setTime2(View v) {
         timePickerDialog2.show();
     }
-    */
-    }
+
     public void reset(View v) {
         start_time.setText("-- : --");
     }
 
     public void reset2(View v) {
         end_time.setText("-- : --");
-
     }
 }
