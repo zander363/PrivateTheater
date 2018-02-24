@@ -41,10 +41,10 @@ public class BookingActivity extends AppCompatActivity {
         row_region = (Switch) findViewById(R.id.row_region);
         row_region_spinner = (Spinner) findViewById(R.id.row_region_spinner);
 
-
+        // TODO set the sqldroid to connect succesfully
         //Here to init all database
-        MovieControl.InitMovieData();
-        Toast.makeText(BookingActivity.this,"init OK", Toast.LENGTH_SHORT).show();
+        //MovieControl.InitMovieData();
+        //Toast.makeText(BookingActivity.this,"init OK", Toast.LENGTH_SHORT).show();
 
         confirmation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +74,8 @@ public class BookingActivity extends AppCompatActivity {
         });
 
 
-        final ArrayList<String> movies = MovieControl.getMovieList();
+        //final ArrayList<String> movies = MovieControl.getMovieList();
+        final ArrayList<String> movies = new ArrayList<>();
         movies.add(0,"請選擇電影");
 
         ArrayAdapter<String> movieList = new ArrayAdapter<>(BookingActivity.this,
@@ -169,7 +170,7 @@ public class BookingActivity extends AppCompatActivity {
                     });
                 }
                 else{
-                    ArrayList<String> time = new ArrayList<String>();
+                    ArrayList<String> time = new ArrayList<>();
                     time.add("");
                     ArrayAdapter<String> timeList = new ArrayAdapter<>(BookingActivity.this,
                             android.R.layout.simple_spinner_dropdown_item,
@@ -180,7 +181,7 @@ public class BookingActivity extends AppCompatActivity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
-                ArrayList<String> time = new ArrayList<String>();
+                ArrayList<String> time = new ArrayList<>();
                 time.add("");
                 ArrayAdapter<String> timeList = new ArrayAdapter<>(BookingActivity.this,
                         android.R.layout.simple_spinner_dropdown_item,
@@ -189,6 +190,5 @@ public class BookingActivity extends AppCompatActivity {
                 time_spinner.setAdapter(timeList);
             }
         }));
-
     }
 }

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,12 +38,6 @@ public class MainActivity extends AppCompatActivity {
             booking = (ImageButton) findViewById(R.id.bookingButton);
             searching = (ImageButton) findViewById(R.id.searchingButton);
             user = (ImageButton) findViewById(R.id.userButton);
-            //oopuser = new OOPUser(this);
-            //helper = new UserDBHelper(this, "oop.movie", null, 1);
-            //Toast.makeText(MainActivity.this, Integer.toString(  oopuser.getCount()), Toast.LENGTH_LONG).show();
-            //if (oopuser.getCount() == 0) {
-            //    oopuser.connect();
-            //}
 
 
             if (this.getIntent().getExtras() != null) {
@@ -54,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     doubleBackToExitPressedOnce = false;
+                    // TODO    make a ListView to show the movie List
                     /*
                     Intent intent = new Intent();
                     intent.setClass(MainActivity.this, RefundingActivity.class);
@@ -113,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_settings:
                 return true;
+            // TODO if already log in should turn to log out
             case R.id.action_logging:
                 Login();
                 return  true;
@@ -135,9 +132,17 @@ public class MainActivity extends AppCompatActivity {
                 EditText user = (EditText)dialogView.findViewById(R.id.username);
                 EditText passwd = (EditText)dialogView.findViewById(R.id.password);
                 String userStr = user.getText().toString();
-                String passwdStr = passwd.getText().toString();
+                String pwStr = passwd.getText().toString();
                 boolean valid = true;
                 if(valid){
+
+                    SharedPreferences setting;
+                    setting = getSharedPreferences("user", MODE_PRIVATE);
+                    //Preference have NAME & PW
+                    setting.edit()
+                            .putString("NAME", String.valueOf(userStr))
+                            .putString("PW", String.valueOf(pwStr))
+                            .apply();
                     Toast.makeText(MainActivity.this, "登入成功", Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(MainActivity.this, "登入失敗", Toast.LENGTH_LONG).show();

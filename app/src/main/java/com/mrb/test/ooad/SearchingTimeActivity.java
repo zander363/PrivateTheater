@@ -48,6 +48,7 @@ public class SearchingTimeActivity extends AppCompatActivity {
             }
         });
 
+        // TODO  output format should be two digit
     // 實作TimePickerDialog的onTimeSet方法，設定時間後將所設定的時間show在textTime上
     timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
         //將時間轉為12小時製顯示出來

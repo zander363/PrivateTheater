@@ -11,4 +11,6 @@ public class SearchingRatingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searching_rating);
     }
+
+    // TODO  make a ListView to show the movie List
 }
