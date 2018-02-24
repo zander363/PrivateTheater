@@ -42,9 +42,10 @@ public class BookingActivity extends AppCompatActivity {
             row_region = (Switch) findViewById(R.id.row_region);
             row_region_spinner = (Spinner) findViewById(R.id.row_region_spinner);
 
-            // TODO set the sqldroid to connect succesfully
+            // TODO make sure sqldroid to connect succesfully
             //Here to init all database
             //MovieControl.InitMovieData();
+            //MovieControl.reset();
             //Toast.makeText(BookingActivity.this,"init OK", Toast.LENGTH_SHORT).show();
 
             confirmation.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +102,7 @@ public class BookingActivity extends AppCompatActivity {
                         time_spinner.setSelection(0);
                         time_spinner.setAdapter(timeList);
                         //setting time spinner
+                        /*
                         time_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
                             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -168,6 +170,7 @@ public class BookingActivity extends AppCompatActivity {
                                 row_region_spinner.setAdapter(row_region_List);
                             }
                         });
+                        */
                     } else {
                         ArrayList<String> time = new ArrayList<>();
                         time.add("");

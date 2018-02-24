@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.mrb.test.MOVIE.MovieControl;
 //import com.mrb.test.Class.MovieControl;
 
 public class MainActivity extends AppCompatActivity {
@@ -99,6 +101,18 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        SharedPreferences setting;
+        setting = getSharedPreferences("user", MODE_PRIVATE);
+        if(setting.getBoolean("LogIn", false)){
+            menu.findItem(R.id.action_logging).setTitle("Log Out");
+        }
+        else{
+            menu.findItem(R.id.action_logging).setTitle("Log In");
+        }
+        return super.onPrepareOptionsMenu(menu);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -110,7 +124,14 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             // TODO if already log in should turn to log out
             case R.id.action_logging:
-                Login();
+                SharedPreferences setting;
+                setting = getSharedPreferences("user", MODE_PRIVATE);
+                if(setting.getBoolean("LogIn", false)){
+                    LogOut();
+                }
+                else{
+                    Login();
+                }
                 return  true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -134,13 +155,13 @@ public class MainActivity extends AppCompatActivity {
                 String pwStr = passwd.getText().toString();
                 boolean valid = true;
                 if(valid){
-
                     SharedPreferences setting;
                     setting = getSharedPreferences("user", MODE_PRIVATE);
                     //Preference have NAME & PW
                     setting.edit()
                             .putString("NAME", String.valueOf(userStr))
                             .putString("PW", String.valueOf(pwStr))
+                            .putBoolean("LogIn",true)
                             .apply();
                     Toast.makeText(MainActivity.this, "登入成功", Toast.LENGTH_LONG).show();
                 }else{
@@ -156,6 +177,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         alertDialog.create().show();
+    }
+    private void LogOut(){
+        SharedPreferences setting;
+        setting = getSharedPreferences("user", MODE_PRIVATE);
+        setting.edit()
+                .putString("NAME", null)
+                .putString("PW", null)
+                .putBoolean("LogIn",false)
+                .apply();
+        Toast.makeText(MainActivity.this, "登出成功", Toast.LENGTH_LONG).show();
     }
 
     @Override

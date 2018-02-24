@@ -55,7 +55,7 @@ public class SearchingTimeActivity extends AppCompatActivity {
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             start_time.setText((hourOfDay > 12 ? hourOfDay - 12 : hourOfDay)
-                    + ":" + minute + " " + (hourOfDay > 12 ? "PM" : "AM"));
+                    + ":" + (minute>9 ? "":"0") + minute + " " + (hourOfDay > 12 ? "PM" : "AM"));
             start_ourtime = new Time(Integer.toString(hourOfDay), Integer.toString(minute));
 
         }
@@ -67,7 +67,7 @@ public class SearchingTimeActivity extends AppCompatActivity {
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             end_time.setText((hourOfDay > 12 ? hourOfDay - 12 : hourOfDay)
-                    + ":" + minute + " " + (hourOfDay > 12 ? "PM" : "AM"));
+                    + ":" + (minute>9 ? "":"0") + minute + " " + (hourOfDay > 12 ? "PM" : "AM"));
             end_ourtime = new Time(Integer.toString(hourOfDay), Integer.toString(minute));
         }
     }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(calendar.MINUTE),
