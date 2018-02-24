@@ -31,31 +31,32 @@ public class BookingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booking);
+        try {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_booking);
 
-        confirmation = (Button) findViewById(R.id.confirmation);
-        number_input = (EditText) findViewById(R.id.numberInput);
-        movies_spinner = (Spinner)findViewById(R.id.movieSpinner);
-        time_spinner = (Spinner)findViewById(R.id.timeSpinner);
-        row_region = (Switch) findViewById(R.id.row_region);
-        row_region_spinner = (Spinner) findViewById(R.id.row_region_spinner);
+            confirmation = (Button) findViewById(R.id.confirm);
+            number_input = (EditText) findViewById(R.id.numberInput);
+            movies_spinner = (Spinner) findViewById(R.id.movieSpinner);
+            time_spinner = (Spinner) findViewById(R.id.timeSpinner);
+            row_region = (Switch) findViewById(R.id.row_region);
+            row_region_spinner = (Spinner) findViewById(R.id.row_region_spinner);
 
-        // TODO set the sqldroid to connect succesfully
-        //Here to init all database
-        //MovieControl.InitMovieData();
-        //Toast.makeText(BookingActivity.this,"init OK", Toast.LENGTH_SHORT).show();
+            // TODO set the sqldroid to connect succesfully
+            //Here to init all database
+            //MovieControl.InitMovieData();
+            //Toast.makeText(BookingActivity.this,"init OK", Toast.LENGTH_SHORT).show();
 
-        confirmation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if ("0".equals(number_input.getText().toString())) {
-                    number_input.setText("");
-                    Toast.makeText(BookingActivity.this, "張數錯誤，請重新輸入", Toast.LENGTH_SHORT).show();
-                }
-                if (!"請選擇電影".equals(movies_spinner.getSelectedItem().toString()) &&
-                        !"請選擇場次".equals(time_spinner.getSelectedItem().toString()) &&
-                        !"".equals(number_input.getText().toString())) {
+            confirmation.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if ("0".equals(number_input.getText().toString())) {
+                        number_input.setText("");
+                        Toast.makeText(BookingActivity.this, "張數錯誤，請重新輸入", Toast.LENGTH_SHORT).show();
+                    }
+                    if (!"請選擇電影".equals(movies_spinner.getSelectedItem().toString()) &&
+                            !"請選擇場次".equals(time_spinner.getSelectedItem().toString()) &&
+                            !"".equals(number_input.getText().toString())) {
                     /*
                     Intent intent = new Intent();
                     intent.setClass(BookingActivity.this, next.class);
@@ -66,110 +67,120 @@ public class BookingActivity extends AppCompatActivity {
                     //把字串傳到第二個Activity
                     startActivity(intent);
                     */
-                    Toast.makeText(BookingActivity.this, "棒 可以繼續往下開發囉", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(BookingActivity.this, "有問題尚未回答", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BookingActivity.this, "棒 可以繼續往下開發囉", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(BookingActivity.this, "有問題尚未回答", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
 
 
-        //final ArrayList<String> movies = MovieControl.getMovieList();
-        final ArrayList<String> movies = new ArrayList<>();
-        movies.add(0,"請選擇電影");
+            //final ArrayList<String> movies = MovieControl.getMovieList();
+            final ArrayList<String> movies = new ArrayList<>();
+            movies.add(0, "請選擇電影");
 
-        ArrayAdapter<String> movieList = new ArrayAdapter<>(BookingActivity.this,
-                android.R.layout.simple_spinner_dropdown_item,
-                movies);
-        movies_spinner.setSelection(0);
-        movies_spinner.setAdapter(movieList);
+            ArrayAdapter<String> movieList = new ArrayAdapter<>(BookingActivity.this,
+                    android.R.layout.simple_spinner_dropdown_item,
+                    movies);
+            movies_spinner.setSelection(0);
+            movies_spinner.setAdapter(movieList);
 
-        movies_spinner.setOnItemSelectedListener((new AdapterView.OnItemSelectedListener(){
-            @Override
-            public void onItemSelected(AdapterView<?>parent, View view, int position, long id){
-                if (position>0) {
-                    movieorder = position-1;
-                    MovieControl.setCurrentMovieName(movies.get(position));
+            movies_spinner.setOnItemSelectedListener((new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    if (position > 0) {
+                        movieorder = position - 1;
+                        MovieControl.setCurrentMovieName(movies.get(position));
 
-                    final ArrayList<String> time = MovieControl.getSession();
-                    time.add(0,"請選擇場次");
+                        final ArrayList<String> time = MovieControl.getSession();
+                        time.add(0, "請選擇場次");
 
-                    ArrayAdapter<String> timeList = new ArrayAdapter<>(BookingActivity.this,
-                            android.R.layout.simple_spinner_dropdown_item,
-                            time);
-                    time_spinner.setSelection(0);
-                    time_spinner.setAdapter(timeList);
-                    //setting time spinner
-                    time_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            if(position>0){
-                                timeorder = position-1;
-                                MovieControl.setCurrentSession(time.get(position));
-                                if(MovieControl.getisBigHall()) {
-                                    row_region.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                                        @Override
-                                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                            if (isChecked) {
-                                                // The region mode
-                                                //set to region mode
-                                                ArrayList<String> region = MovieControl.ShowRegionState();
-                                                region.add(0,"請選擇區域");
-                                                ArrayAdapter<String> regionList = new ArrayAdapter<>(BookingActivity.this,
-                                                        android.R.layout.simple_spinner_dropdown_item,region);
-                                                row_region_spinner.setSelection(0);
-                                                row_region_spinner.setAdapter(regionList);
+                        ArrayAdapter<String> timeList = new ArrayAdapter<>(BookingActivity.this,
+                                android.R.layout.simple_spinner_dropdown_item,
+                                time);
+                        time_spinner.setSelection(0);
+                        time_spinner.setAdapter(timeList);
+                        //setting time spinner
+                        time_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                if (position > 0) {
+                                    timeorder = position - 1;
+                                    MovieControl.setCurrentSession(time.get(position));
+                                    if (MovieControl.getisBigHall()) {
+                                        row_region.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                                            @Override
+                                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                                if (isChecked) {
+                                                    // The region mode
+                                                    //set to region mode
+                                                    ArrayList<String> region = MovieControl.ShowRegionState();
+                                                    region.add(0, "請選擇區域");
+                                                    ArrayAdapter<String> regionList = new ArrayAdapter<>(BookingActivity.this,
+                                                            android.R.layout.simple_spinner_dropdown_item, region);
+                                                    row_region_spinner.setSelection(0);
+                                                    row_region_spinner.setAdapter(regionList);
 
-                                                //add the region spinner setting
+                                                    //add the region spinner setting
 
-                                            } else {
-                                                // The row mode
-                                                //set to row mode
-                                                ArrayList<String> row = MovieControl.ShowRowState();
-                                                row.add(0,"請選擇排數");
-                                                ArrayAdapter<String> rowList = new ArrayAdapter<>(BookingActivity.this,
-                                                        android.R.layout.simple_spinner_dropdown_item,
-                                                        row);
-                                                row_region_spinner.setSelection(0);
-                                                row_region_spinner.setAdapter(rowList);
+                                                } else {
+                                                    // The row mode
+                                                    //set to row mode
+                                                    ArrayList<String> row = MovieControl.ShowRowState();
+                                                    row.add(0, "請選擇排數");
+                                                    ArrayAdapter<String> rowList = new ArrayAdapter<>(BookingActivity.this,
+                                                            android.R.layout.simple_spinner_dropdown_item,
+                                                            row);
+                                                    row_region_spinner.setSelection(0);
+                                                    row_region_spinner.setAdapter(rowList);
 
-                                                //add the region spinner setting
+                                                    //add the region spinner setting
+                                                }
                                             }
-                                        }
-                                    });
-                                }
-                                else{
+                                        });
+                                    } else {
+                                        ArrayList<String> row_region = new ArrayList<String>();
+                                        row_region.add("小廳無法選擇排數或區域");
+                                        ArrayAdapter<String> row_region_List = new ArrayAdapter<>(BookingActivity.this,
+                                                android.R.layout.simple_spinner_dropdown_item, row_region);
+                                        row_region_spinner.setSelection(0);
+                                        row_region_spinner.setAdapter(row_region_List);
+                                    }
+
+                                } else {
                                     ArrayList<String> row_region = new ArrayList<String>();
-                                    row_region.add("小廳無法選擇排數或區域");
+                                    row_region.add("");
                                     ArrayAdapter<String> row_region_List = new ArrayAdapter<>(BookingActivity.this,
-                                            android.R.layout.simple_spinner_dropdown_item,row_region);
+                                            android.R.layout.simple_spinner_dropdown_item,
+                                            row_region);
                                     row_region_spinner.setSelection(0);
                                     row_region_spinner.setAdapter(row_region_List);
                                 }
+                            }
 
-                            }else{
+                            @Override
+                            public void onNothingSelected(AdapterView<?> arg0) {
                                 ArrayList<String> row_region = new ArrayList<String>();
                                 row_region.add("");
                                 ArrayAdapter<String> row_region_List = new ArrayAdapter<>(BookingActivity.this,
-                                        android.R.layout.simple_spinner_dropdown_item,
-                                        row_region);
+                                        android.R.layout.simple_spinner_dropdown_item, row_region);
                                 row_region_spinner.setSelection(0);
                                 row_region_spinner.setAdapter(row_region_List);
                             }
-                        }
-
-                        @Override
-                        public void onNothingSelected(AdapterView<?> arg0) {
-                            ArrayList<String> row_region = new ArrayList<String>();
-                            row_region.add("");
-                            ArrayAdapter<String> row_region_List = new ArrayAdapter<>(BookingActivity.this,
-                                    android.R.layout.simple_spinner_dropdown_item, row_region);
-                            row_region_spinner.setSelection(0);
-                            row_region_spinner.setAdapter(row_region_List);
-                        }
-                    });
+                        });
+                    } else {
+                        ArrayList<String> time = new ArrayList<>();
+                        time.add("");
+                        ArrayAdapter<String> timeList = new ArrayAdapter<>(BookingActivity.this,
+                                android.R.layout.simple_spinner_dropdown_item,
+                                time);
+                        time_spinner.setSelection(0);
+                        time_spinner.setAdapter(timeList);
+                    }
                 }
-                else{
+
+                @Override
+                public void onNothingSelected(AdapterView<?> arg0) {
                     ArrayList<String> time = new ArrayList<>();
                     time.add("");
                     ArrayAdapter<String> timeList = new ArrayAdapter<>(BookingActivity.this,
@@ -178,17 +189,9 @@ public class BookingActivity extends AppCompatActivity {
                     time_spinner.setSelection(0);
                     time_spinner.setAdapter(timeList);
                 }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                ArrayList<String> time = new ArrayList<>();
-                time.add("");
-                ArrayAdapter<String> timeList = new ArrayAdapter<>(BookingActivity.this,
-                        android.R.layout.simple_spinner_dropdown_item,
-                        time);
-                time_spinner.setSelection(0);
-                time_spinner.setAdapter(timeList);
-            }
-        }));
+            }));
+        } catch (Exception e) {
+            Toast.makeText(BookingActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 }

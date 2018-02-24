@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     //判斷離開的flag，設定成全域變數
     private boolean doubleBackToExitPressedOnce = false;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
