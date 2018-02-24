@@ -1,11 +1,18 @@
 package com.mrb.test.ooad;
 
+import android.app.AlertDialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 //import com.mrb.test.Class.MovieControl;
@@ -36,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             //if (oopuser.getCount() == 0) {
             //    oopuser.connect();
             //}
+
 
             if (this.getIntent().getExtras() != null) {
                 Bundle bundle = this.getIntent().getExtras();
@@ -91,23 +99,78 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
-        @Override
-        public void onBackPressed() {
-            if (doubleBackToExitPressedOnce) {
-                super.onBackPressed();
-                return;
-            }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
 
-            this.doubleBackToExitPressedOnce = true;
-            Toast.makeText(this, "再按一下退出程式", Toast.LENGTH_SHORT).show();
-
-            new Handler().postDelayed(new Runnable() {
-
-                @Override
-                public void run() {
-                    doubleBackToExitPressedOnce=false;
-                }
-            }, 2000);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.action_help:
+                Help();
+                return true;
+            case R.id.action_settings:
+                return true;
+            case R.id.action_logging:
+                Login();
+                return  true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
+    }
+    private void Help() {
+        Toast.makeText(this, "關掉比較快", Toast.LENGTH_SHORT).show();
+    }
+    private void Login(){
+        LayoutInflater factory = LayoutInflater.from(MainActivity.this);
+        final View dialogView = factory.inflate(R.layout.login_alertdialog, null);
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setView(dialogView);
+        alertDialog.setPositiveButton("登入", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                EditText user = (EditText)dialogView.findViewById(R.id.username);
+                EditText passwd = (EditText)dialogView.findViewById(R.id.password);
+                String userStr = user.getText().toString();
+                String passwdStr = passwd.getText().toString();
+                boolean valid = true;
+                if(valid){
+                    Toast.makeText(MainActivity.this, "登入成功", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(MainActivity.this, "登入失敗", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        alertDialog.setNegativeButton("註冊", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                // TODO Intent to Register Page
+            }
+        });
+        alertDialog.create().show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "再按一下退出程式", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
+    }
 }
 

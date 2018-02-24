@@ -1,13 +1,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="300dp"
     android:layout_height="wrap_content">
-    <ImageView
+
+    <TextView
+        android:id="@+id/loggin_title"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:scaleType="center"
         android:background="#1e2535"
-        android:contentDescription="@string/app_name" />
+        android:contentDescription="@string/app_name"
+        android:scaleType="center"
+        android:text="Loggin"
+        android:lineSpacingMultiplier= "0"
+        android:lineSpacingExtra= "64dp"
+        android:paddingTop= "10dp"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
     <EditText
         android:id="@+id/username"
         android:inputType="textEmailAddress"
