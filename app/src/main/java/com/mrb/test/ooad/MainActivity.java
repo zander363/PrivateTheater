@@ -51,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     doubleBackToExitPressedOnce = false;
                     // TODO    make a ListView to show the movie List
-                    /*
+
                     Intent intent = new Intent();
-                    intent.setClass(MainActivity.this, RefundingActivity.class);
+                    intent.setClass(MainActivity.this, MovieListActivity.class);
                     startActivity(intent);
-                    */
-                    Toast.makeText(MainActivity.this, "功能尚未開放", Toast.LENGTH_LONG).show();
+
+                    //Toast.makeText(MainActivity.this, "功能尚未開放", Toast.LENGTH_LONG).show();
                 }
             });
             booking.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_settings:
                 return true;
-            // TODO if already log in should turn to log out
             case R.id.action_logging:
                 SharedPreferences setting;
                 setting = getSharedPreferences("user", MODE_PRIVATE);

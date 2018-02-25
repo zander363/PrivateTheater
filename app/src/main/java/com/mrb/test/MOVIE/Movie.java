@@ -725,7 +725,7 @@ public class Movie {
 	}
 
 	/**
-	 * 取的放映時間(字串)
+	 * 取得放映時間(字串)
 	 * @return String starttime_s
 	 */
 	public String getStarttime_s() {

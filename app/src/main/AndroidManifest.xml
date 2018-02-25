@@ -22,12 +22,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoggingActivity" />
-        <activity android:name=".BookingActivity"
+        <activity
+            android:name=".BookingActivity"
             android:label="立即訂票" />
         <activity android:name=".RefundingActivity" />
         <activity android:name=".SearchingActivity" />
         <activity android:name=".SearchingTimeActivity" />
         <activity android:name=".SearchingRatingActivity" />
+        <activity android:name=".MovieListActivity"></activity>
     </application>
 
 </manifest>
