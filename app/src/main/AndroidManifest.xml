@@ -46,7 +46,8 @@
             android:name=".MovieListActivity"
             android:label="現正熱映"
             android:screenOrientation="portrait" />
-        <activity android:name=".RootActivity"></activity>
+        <activity android:name=".RootActivity" />
+        <activity android:name=".MovieDetailActivity"></activity>
     </application>
 
 </manifest>

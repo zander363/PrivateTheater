@@ -46,11 +46,11 @@ public class RootActivity extends AppCompatActivity {
         SharedPreferences setting;
         setting = getSharedPreferences("user", MODE_PRIVATE);
         if(setting.getBoolean("LogIn", false)){
-            NV.getMenu().findItem(R.id.logging).setTitle("Log Out");
+            NV.getMenu().findItem(R.id.logging).setTitle("登出");
             NV.getMenu().findItem(R.id.logging).setIcon(R.mipmap.logout);
         }
         else{
-            NV.getMenu().findItem(R.id.logging).setTitle("Log In");
+            NV.getMenu().findItem(R.id.logging).setTitle("登入");
             NV.getMenu().findItem(R.id.logging).setIcon(R.mipmap.login);
         }
         NV.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -126,7 +126,7 @@ public class RootActivity extends AppCompatActivity {
                             .putBoolean("LogIn",true)
                             .apply();
                     Toast.makeText(RootActivity.this, "登入成功", Toast.LENGTH_LONG).show();
-                    NV.getMenu().findItem(R.id.logging).setTitle("Log Out");
+                    NV.getMenu().findItem(R.id.logging).setTitle("登出");
                     NV.getMenu().findItem(R.id.logging).setIcon(R.mipmap.logout);
                 }else{
                     Toast.makeText(RootActivity.this, "登入失敗", Toast.LENGTH_LONG).show();
@@ -157,7 +157,7 @@ public class RootActivity extends AppCompatActivity {
                         .putBoolean("LogIn",false)
                         .apply();
                 Toast.makeText(RootActivity.this, "登出成功", Toast.LENGTH_LONG).show();
-                NV.getMenu().findItem(R.id.logging).setTitle("Log In");
+                NV.getMenu().findItem(R.id.logging).setTitle("登入");
                 NV.getMenu().findItem(R.id.logging).setIcon(R.mipmap.login);
             }
         });

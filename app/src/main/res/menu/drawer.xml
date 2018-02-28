@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
-
+    <group android:checkableBehavior="single"
+        android:id="@+id/functional">
         <item
             android:id="@+id/movies"
             android:icon="@mipmap/movies2"
-            android:title="Navigation Items 2"/>
+            android:title="目前熱映"/>
         <item
             android:id="@+id/searching"
             android:checked="true"
             android:icon="@mipmap/searching"
-            android:title="Navigation Items 1"/>
+            android:title="條件查詢"/>
         <item
             android:id="@+id/booking"
             android:icon="@mipmap/booking"
-            android:title="Navigation Items 3"/>
+            android:title="立即訂票"/>
     </group>
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+        android:id="@+id/general">
         <item
             android:id="@+id/help"
             android:icon="@mipmap/help"
-            android:title="Help"
+            android:title="幫助"
             />
         <item
             android:id="@+id/logging"
             android:icon="@mipmap/login"
-            android:title="Log In"
+            android:title="登入"
             />
         <item
             android:id="@+id/settings"
             android:icon="@mipmap/setting"
-            android:title="Setting"/>
+            android:title="設定"/>
     </group>
 
 </menu>
