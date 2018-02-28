@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:background="#0097a7"
+        >
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_alignParentBottom="true"
+            android:text="Private Movie"
+            android:textSize="14sp"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"
+            />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

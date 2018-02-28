@@ -20,7 +20,7 @@ import android.widget.Toast;
 import com.mrb.test.MOVIE.MovieControl;
 //import com.mrb.test.Class.MovieControl;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends RootActivity {
     private ImageButton movie;
     private ImageButton booking;
     private ImageButton searching;
@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
             booking = (ImageButton) findViewById(R.id.bookingButton);
             searching = (ImageButton) findViewById(R.id.searchingButton);
             user = (ImageButton) findViewById(R.id.userButton);
+            CurrentMenuItem = 0;
+            NV.getMenu().getItem(CurrentMenuItem).setChecked(true);
 
 
             if (this.getIntent().getExtras() != null) {

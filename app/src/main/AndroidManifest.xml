@@ -14,22 +14,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoggingActivity" />
+        <activity
+            android:name=".LoggingActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".BookingActivity"
-            android:label="立即訂票" />
-        <activity android:name=".RefundingActivity" />
-        <activity android:name=".SearchingActivity" />
-        <activity android:name=".SearchingTimeActivity" />
-        <activity android:name=".SearchingRatingActivity" />
-        <activity android:name=".MovieListActivity"></activity>
+            android:label="立即訂票"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RefundingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SearchingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SearchingTimeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SearchingRatingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MovieListActivity"
+            android:label="現正熱映"
+            android:screenOrientation="portrait" />
+        <activity android:name=".RootActivity"></activity>
     </application>
 
 </manifest>
