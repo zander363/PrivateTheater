@@ -32,7 +32,7 @@ public class MainActivity extends RootActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
-            //MovieControl.InitMovieData();
+            MovieControl.InitMovieData();
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
             movie = (ImageButton) findViewById(R.id.movieButton);

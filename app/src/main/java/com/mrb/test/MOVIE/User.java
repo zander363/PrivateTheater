@@ -38,7 +38,7 @@ public class User {
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/User.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/User.db");
 			c.setAutoCommit(false);
 			//System.out.println("Opened database successfully");
 			stmt = c.createStatement();
@@ -64,7 +64,7 @@ public class User {
 		Order order = new Order();
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/User.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/User.db");
 			c.setAutoCommit(false);
 			//System.out.println("Opened database successfully");
 			stmt = c.createStatement();
@@ -100,7 +100,7 @@ public class User {
 		ArrayList<Integer> arrint=null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/User.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/User.db");
 			c.setAutoCommit(false);
 			//System.out.println("Opened database successfully");
 			stmt = c.createStatement();
@@ -134,7 +134,7 @@ public class User {
 		ArrayList<Integer> arrint=new ArrayList<Integer>(0);
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/User.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/User.db");
 			c.setAutoCommit(false);
 			//System.out.println("Opened database successfully");
 			stmt = c.createStatement();

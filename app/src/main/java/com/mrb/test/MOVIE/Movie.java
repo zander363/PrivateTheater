@@ -63,7 +63,7 @@ public class Movie {
 		Statement stmt2 = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Movie.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/Movie.db");
 			c.setAutoCommit(false);
 			stmt2 = c.createStatement();
 			ResultSet rs1 = stmt2.executeQuery("SELECT *  FROM " + Tab_name);
@@ -103,7 +103,7 @@ public class Movie {
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Movie.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/Movie.db");
 			c.setAutoCommit(false);
 			//System.out.println("Open Successfully");
 			stmt = c.createStatement();
@@ -202,7 +202,7 @@ public class Movie {
 		ArrayList<String> arrlist = new ArrayList(10);
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Movie.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/Movie.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully HIGHER!!!! ");
 
@@ -242,7 +242,7 @@ public class Movie {
 		ArrayList<String> arrlist = new ArrayList<String>(10);
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Movie.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/Movie.db");
 			c.setAutoCommit(false);
 			// ("MOVIENAME,ID, URL, DESCRI, HALLNAME, HALL_ID, MOV_CLAS,
 			// STARTTIME, SCORE, INFOR)
@@ -277,7 +277,7 @@ public class Movie {
 		String clas = "";
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Movie.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/Movie.db");
 			c.setAutoCommit(false);
 			// ("MOVIENAME,ID, URL, DESCRI, HALLNAME, HALL_ID, MOV_CLAS,
 			// STARTTIME, SCORE, INFOR)
@@ -306,7 +306,7 @@ public class Movie {
 		ArrayList<String> arrlist = new ArrayList<String>(10);
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Movie.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/Movie.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully HIGHER!!!! ");
 
@@ -360,7 +360,7 @@ public class Movie {
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Movie.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/Movie.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully HIGHER!!!! ");
 
@@ -397,7 +397,7 @@ public class Movie {
 		Statement stmt2 = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Movie.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/Movie.db");
 			c.setAutoCommit(false);
 			stmt2 = c.createStatement();
 			ResultSet rs1 = stmt2.executeQuery("SELECT *  FROM " + Tab_name + " WHERE STARTTIME >= '"
@@ -446,7 +446,7 @@ public class Movie {
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Movie.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/Movie.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully");
 
@@ -614,7 +614,7 @@ public class Movie {
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/Movie.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/Movie.db");
 			// System.out.println("Opened database successfully");
 
 			stmt = c.createStatement();

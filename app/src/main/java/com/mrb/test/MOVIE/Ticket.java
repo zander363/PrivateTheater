@@ -62,7 +62,7 @@ public class Ticket {
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/TicketAuto.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/TicketAuto.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully");
 
@@ -114,7 +114,7 @@ public class Ticket {
 			// Connection c1 = null;
 			Statement stmt1 = null;
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/TicketAuto.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/TicketAuto.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully");
 			stmt1 = c.createStatement();
@@ -153,7 +153,7 @@ public class Ticket {
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/TicketAuto.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/TicketAuto.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully");
 
@@ -205,7 +205,7 @@ public class Ticket {
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/TicketAuto.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/TicketAuto.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully");
 
@@ -260,7 +260,7 @@ public class Ticket {
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/TicketAuto.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/TicketAuto.db");
 			// System.out.println("Opened database successfully");
 
 			stmt = c.createStatement();
@@ -292,7 +292,7 @@ public class Ticket {
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqldroid.SQLDroidDriver");
-			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.MOVIE/TicketAuto.db");
+			c = DriverManager.getConnection("jdbc:sqldroid:/data/data/com.mrb.test.ooad/TicketAuto.db");
 			c.setAutoCommit(false);
 			// System.out.println("Opened database successfully");
 
