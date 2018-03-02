@@ -48,6 +48,13 @@
             android:textColor="#060606" />
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#d1d1d1"
+            android:padding="5dp"
+            android:text="演員:你媽超胖"
+            android:textColor="#060606" />
+        <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="136dp"

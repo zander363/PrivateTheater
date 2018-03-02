@@ -10,6 +10,12 @@ public class MovieOnList {
     private String time;
     private int classification;
 
+    public MovieOnList(){
+        name="電影名稱";
+        subTitle="movie name";
+        time="片長:112分鐘";
+        classification=0;
+    }
     public MovieOnList(String name, String subTitle, String time, int classification) {
         this.name = name;
         this.subTitle = subTitle;

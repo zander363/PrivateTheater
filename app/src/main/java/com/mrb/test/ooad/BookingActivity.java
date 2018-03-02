@@ -45,7 +45,7 @@ public class BookingActivity extends AppCompatActivity {
             // TODO make sure sqldroid to connect succesfully
             //Here to init all database
             //MovieControl.InitMovieData();
-            //MovieControl.reset();
+            MovieControl.reset();
             //Toast.makeText(BookingActivity.this,"init OK", Toast.LENGTH_SHORT).show();
 
             confirmation.setOnClickListener(new View.OnClickListener() {
@@ -76,8 +76,8 @@ public class BookingActivity extends AppCompatActivity {
             });
 
 
-            //final ArrayList<String> movies = MovieControl.getMovieList();
-            final ArrayList<String> movies = new ArrayList<>();
+            final ArrayList<String> movies = MovieControl.getMovieList();
+            //final ArrayList<String> movies = new ArrayList<>();
             movies.add(0, "請選擇電影");
 
             ArrayAdapter<String> movieList = new ArrayAdapter<>(BookingActivity.this,

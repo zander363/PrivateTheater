@@ -1,5 +1,7 @@
 package com.mrb.test.MOVIE;
 
+import android.content.Context;
+
 import com.mrb.test.HALL.Hall;
 
 import java.io.IOException;
@@ -82,8 +84,8 @@ public class MovieControl {
 	 * 
 	 * @throws IOException
 	 */
-	public static void InitMovieData(){
-		Movie.Creat_Mov_Db();
+	public static void InitMovieData(Context context){
+		Movie.Creat_Mov_Db(context);
 		//Hall.InitialHall();
 		//Ticket.InitializeDB();
 	}

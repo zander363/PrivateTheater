@@ -1,5 +1,7 @@
 package com.mrb.test.MOVIE;
 
+import android.content.Context;
+
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,6 +12,8 @@ import org.json.*;
 import com.mrb.test.HALL.BigHall;
 import com.mrb.test.HALL.Hall;
 import com.mrb.test.HALL.SmallHall;
+import com.mrb.test.ooad.R;
+
 /**
  * Class Movie
  * 儲存movie的資料
@@ -186,7 +190,6 @@ public class Movie {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
 		}
-
 		// System.out.println("Operation done successfully");
 	}
 
@@ -474,7 +477,7 @@ public class Movie {
 	/**
 	 * 把Movie的json檔的資料讀入
 	 */
-	private static void Setmovie() {
+	private static void Setmovie(Context context) {
 		String movie_name;
 		String id;
 		// String resp_id;
@@ -492,7 +495,7 @@ public class Movie {
 		String infor_s;
 		int infor;
 		String str = "";
-
+/*
 		FileReader fin;
 
 		try {
@@ -509,9 +512,15 @@ public class Movie {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+*/
 		JSONObject j;
 		try {
-			JSONArray jsonArr = new JSONArray(str);
+			InputStream is = context.getResources().openRawResource(R.raw.movie_info);
+			int lenght = is.available();
+			byte[]  buffer = new byte[lenght];
+			is.read(buffer);
+			String result = new String(buffer, "utf8");
+			JSONArray jsonArr = new JSONArray(result);
 
 			for (int i = 0; i < jsonArr.length(); i++) {
 				starttime_s = jsonArr.getJSONObject(i).getString("time");
@@ -609,7 +618,7 @@ public class Movie {
 	/**
 	 * 創MOVIE DB
 	 */
-	public static void Creat_Mov_Db() {
+	public static void Creat_Mov_Db(Context context) {
 		Connection c = null;
 		Statement stmt = null;
 		try {
@@ -633,7 +642,7 @@ public class Movie {
 						+ " STARTTIME             TIME    NOT NULL, " + " SCORE        DOUBLE, "
 						+ " INFOR             INTEGER)";
 				stmt.executeUpdate(sql);
-				Movie.Setmovie();
+				Movie.Setmovie(context);
 				stmt.close();
 				c.close();
 
