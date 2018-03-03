@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.support.annotation.LayoutRes;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -26,6 +27,7 @@ public class RootActivity extends AppCompatActivity {
     protected int CurrentMenuItem = 0;
     //final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     //setSupportActionBar(toolbar);
+    public boolean doubleBackToExitPressedOnce = false;
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
@@ -37,8 +39,6 @@ public class RootActivity extends AppCompatActivity {
         //toolbar = (Toolbar) findViewById(R.id.ToolBar);
         setUpNavigation();
     }
-
-
 
     private void setUpNavigation() {
         // Set navigation item selected listener
@@ -56,8 +56,44 @@ public class RootActivity extends AppCompatActivity {
         NV.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                if(!(menuItem == NV.getMenu().getItem(CurrentMenuItem))) {//判斷使者者是否點擊當前畫面的項目，若不是，根據所按的項目做出分別的動作
+                if(!(menuItem == NV.getMenu().getItem(CurrentMenuItem))) {
+                    //判斷使者者是否點擊當前畫面的項目，若不是，根據所按的項目做出分別的動作
                     switch (menuItem.getItemId()) {
+                        case R.id.movies:
+                            Intent intent = new Intent();
+                            intent.setClass(RootActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            overridePendingTransition(0, 0);
+                            finish();
+                            break;
+                        /*
+                        case R.id.searching:
+                            Intent intent2 = new Intent();
+                            intent2.setClass(RootActivity.this, SearchingActivity.class);
+                            startActivity(intent2);
+                            overridePendingTransition(0, 0);
+                            finish();
+                            break;
+                            */
+                        case R.id.booking:
+                            Intent intent3 = new Intent();
+                            intent3.setClass(RootActivity.this, BookingActivity.class);
+                            startActivity(intent3);
+                            overridePendingTransition(0, 0);
+                            finish();
+                            break;
+                        case R.id.searching_time:
+                            Intent intent4 = new Intent();
+                            intent4.setClass(RootActivity.this, SearchingTimeActivity.class);
+                            startActivity(intent4);
+                            overridePendingTransition(0, 0);
+                            break;
+                        case R.id.searching_rating:
+                            Intent intent5 = new Intent();
+                            intent5.setClass(RootActivity.this, SearchingRatingActivity.class);
+                            startActivity(intent5);
+                            overridePendingTransition(0, 0);
+                            break;
                         case R.id.help:
                             Help();
                             break;
@@ -73,22 +109,6 @@ public class RootActivity extends AppCompatActivity {
                                 Login();
                             }
                             break;
-                        /*
-                        case R.id.navItemOne:
-                            Intent intent = new Intent();
-                            intent.setClass(Navigation_BaseActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            overridePendingTransition(0, 0);
-                            finish();
-                            break;
-                        case R.id.navItemAbout:
-                            Intent intent2 = new Intent();
-                            intent2.setClass(Navigation_BaseActivity.this, About.class);
-                            startActivity(intent2);
-                            overridePendingTransition(0, 0);
-                            finish();
-                            break;
-                            */
                     }
                 }
                 else {
@@ -101,9 +121,11 @@ public class RootActivity extends AppCompatActivity {
 
 
     private void Help() {
+        doubleBackToExitPressedOnce=false;
         Toast.makeText(this, "關掉比較快", Toast.LENGTH_SHORT).show();
     }
     private void Login(){
+        doubleBackToExitPressedOnce=false;
         LayoutInflater factory = LayoutInflater.from(RootActivity.this);
         final View dialogView = factory.inflate(R.layout.login_alertdialog, null);
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
@@ -136,6 +158,7 @@ public class RootActivity extends AppCompatActivity {
         alertDialog.setNegativeButton("註冊", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                doubleBackToExitPressedOnce=false;
                 // TODO Auto-generated method stub
                 // TODO Intent to Register Page
             }
@@ -143,6 +166,7 @@ public class RootActivity extends AppCompatActivity {
         alertDialog.create().show();
     }
     private void LogOut(){
+        doubleBackToExitPressedOnce=false;
         final AlertDialog.Builder alertDialog =new AlertDialog.Builder(RootActivity.this);
         alertDialog.setTitle("Logout");
         alertDialog.setMessage("Are you sure you want to Logout?");
@@ -164,5 +188,23 @@ public class RootActivity extends AppCompatActivity {
         alertDialog.setNegativeButton("No", null);
         alertDialog.create().show();
 
+    }
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "再按一下退出程式", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 }

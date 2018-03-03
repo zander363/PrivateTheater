@@ -4,102 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mrb.test.ooad.MainActivity">
+    tools:context="com.mrb.test.ooad.ForTestActivity">
 
-    <GridLayout
-        android:layout_width="299dp"
-        android:layout_height="335dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
-        <ImageButton
-            android:id="@+id/movieButton"
-            style="@android:style/Widget.ImageButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/viewGroup"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@mipmap/movies" />
-
-        <ImageButton
-            android:id="@+id/bookingButton"
-            style="@android:style/Widget.ImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_row="0"
-            app:srcCompat="@mipmap/booking" />
-
-        <TextView
-            android:id="@+id/movieText"
-            android:layout_width="118dp"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="1"
-            android:text="目前熱映"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/bookingText"
-            android:layout_width="113dp"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_row="1"
-            android:text="訂票"
-            android:textAlignment="center" />
-
-        <Space
-            android:layout_width="56dp"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="1" />
-
-
-        <ImageButton
-            android:id="@+id/searchingButton"
-            style="@android:style/Widget.ImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="3"
-            app:srcCompat="@mipmap/searching" />
-
-        <ImageButton
-            android:id="@+id/userButton"
-            style="@android:style/Widget.ImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_row="3"
-            app:srcCompat="@mipmap/user_center" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:layout_column="0"
-            android:layout_row="2" />
-
-        <TextView
-            android:id="@+id/SearchingButton"
-            android:layout_width="116dp"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="4"
-            android:text="條件搜詢"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/userText"
-            android:layout_width="115dp"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_row="4"
-            android:text="會員專區"
-            android:textAlignment="center" />
-    </GridLayout>
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

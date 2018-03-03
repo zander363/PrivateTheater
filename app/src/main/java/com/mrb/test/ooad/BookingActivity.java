@@ -1,6 +1,7 @@
 package com.mrb.test.ooad;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,7 @@ import com.mrb.test.MOVIE.MovieControl;
 
 import java.util.ArrayList;
 
-public class BookingActivity extends AppCompatActivity {
+public class BookingActivity extends RootActivity {
     private Button confirmation;
     private Spinner movies_spinner;
     private Spinner time_spinner;
@@ -41,6 +42,8 @@ public class BookingActivity extends AppCompatActivity {
             time_spinner = (Spinner) findViewById(R.id.timeSpinner);
             row_region = (Switch) findViewById(R.id.row_region);
             row_region_spinner = (Spinner) findViewById(R.id.row_region_spinner);
+            CurrentMenuItem = 1;
+            NV.getMenu().getItem(CurrentMenuItem).setChecked(true);
 
             // TODO make sure sqldroid to connect succesfully
             //Here to init all database
@@ -51,6 +54,7 @@ public class BookingActivity extends AppCompatActivity {
             confirmation.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    doubleBackToExitPressedOnce=false;
                     if ("0".equals(number_input.getText().toString())) {
                         number_input.setText("");
                         Toast.makeText(BookingActivity.this, "張數錯誤，請重新輸入", Toast.LENGTH_SHORT).show();
@@ -76,8 +80,8 @@ public class BookingActivity extends AppCompatActivity {
             });
 
 
-            final ArrayList<String> movies = MovieControl.getMovieList();
-            //final ArrayList<String> movies = new ArrayList<>();
+            //final ArrayList<String> movies = MovieControl.getMovieList();
+            final ArrayList<String> movies = new ArrayList<>();
             movies.add(0, "請選擇電影");
 
             ArrayAdapter<String> movieList = new ArrayAdapter<>(BookingActivity.this,
@@ -90,6 +94,7 @@ public class BookingActivity extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     if (position > 0) {
+                        doubleBackToExitPressedOnce=false;
                         movieorder = position - 1;
                         MovieControl.setCurrentMovieName(movies.get(position));
 

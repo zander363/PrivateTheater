@@ -65,8 +65,8 @@ public class MovieListAdapter extends BaseAdapter {
         }
 
         MovieOnList movie = (MovieOnList) getItem(position);
-        String text_class[] = {"普遍級 0+","保護級 6+","輔12級 12+","限制級18+"};
-        int color_class[] = {0xFF3A8F2F,0xFF1179AE,0xFFF2B320,0xFFEB252C};
+        String text_class[] = {"普遍級 0+","保護級 6+","輔12級 12+","輔15級","限制級18+"};
+        int color_class[] = {0xFF3A8F2F,0xFF1179AE,0xFFF2B320,0xFFFF5A1E,0xFFEB252C};
 
         int type_num = movie.getClassification();
         holder.classification.setBackgroundColor(color_class[type_num]);

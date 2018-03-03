@@ -1,10 +1,12 @@
 package com.mrb.test.ooad;
 
+import java.io.Serializable;
+
 /**
  * Created by Mr.B on 2018/2/25.
  */
 
-public class MovieOnList {
+public class MovieOnList implements Serializable {
     private String name;
     private String subTitle;
     private String time;

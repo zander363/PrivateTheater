@@ -13,7 +13,7 @@ import com.mrb.test.MOVIE.Time;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class SearchingTimeActivity extends AppCompatActivity {
+public class SearchingTimeActivity extends RootActivity {
     private Button start_time;
     private Button end_time;
 
@@ -31,6 +31,8 @@ public class SearchingTimeActivity extends AppCompatActivity {
         start_time = (Button) findViewById(R.id.timestart);
         end_time = (Button) findViewById(R.id.timeend);
         confirmation = (Button) findViewById(R.id.confirmation);
+        CurrentMenuItem = 2;
+        NV.getMenu().getItem(CurrentMenuItem).setChecked(true);
 
         GregorianCalendar calendar = new GregorianCalendar();
 
@@ -38,13 +40,9 @@ public class SearchingTimeActivity extends AppCompatActivity {
         confirmation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
                 Intent intent = new Intent();
-                intent.setClass(SearchingTimeActivity.this, next.class);
-                intent.putExtra("starttime",start_ourtime.toString());
-                intent.putExtra("endtime",end_ourtime.toString());
+                intent.setClass(SearchingTimeActivity.this, MovieListActivity.class);
                 startActivity(intent);
-        */
             }
         });
 
