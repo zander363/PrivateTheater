@@ -34,7 +34,7 @@ and it need storage permission
 
 ### Preview
 
-![Main Page](/preview/mainpage.png "Main Page") ![Main Page Changing](/preview/mainpage_change.png "Main Page Changing") ![Navigation Drawer](/preview/navigationdrawer.png "Navigation Drawer") ![rating ](/preview/rating.png "Searching by Rating") ![Movie List](/preview/movielist.png "Movie List" ) ![clock](/preview/clock.png "Clock") ![Booking](/preview/booking.png "Booking")
+![Main Page](/preview/mainpage.png "Main Page") ![Main Page Changing](/preview/mainpage_change.png "Main Page Changing") ![Navigation Drawer](/preview/navigationdrawer.png "Navigation Drawer") ![rating ](/preview/rating.png "Searching by Rating") ![Movie List](/preview/movielist.png "Movie List" ) ![clock](/preview/clock.png "Clock") ![Login](/preview/login.png "Login") ![Booking](/preview/booking.png "Booking")
 
 
 
